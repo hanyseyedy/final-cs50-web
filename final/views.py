@@ -55,18 +55,14 @@ def createListing(request):
         title = request.POST["title"]
         description = request.POST["description"]
         imageurl = request.POST["imageurl"]
-        price = request.POST["price"]
         category = request.POST["category"]
         curentuser = request.user
         categoryDate = Category.objects.get(categoryName=category)
-        bid = Bid(bid=int(price), user=curentuser)
-        bid.save()
 
         newListing = Listing(
             title = title,
             description = description,
             ImageUrl = imageurl,
-            price = bid,
             category = categoryDate,
             owner = curentuser
         )
