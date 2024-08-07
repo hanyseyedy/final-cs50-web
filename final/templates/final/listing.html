@@ -36,16 +36,6 @@
 <p><b>Owner:</b> {{ listing.owner }}</p>
 <h4><b>price:</b> ${{ listing.price.bid }}</h4>
 
-{% if user.is_authenticated %}
-<form action="{% url 'addBid' id=listing.id %}" method="POST">
-  {% csrf_token %}
-  <div class="form-group">
-    <label for="addBid">Add Bid:</label>
-    <input type="number" min="0" name="addBid" placeholder="Add Bid" />
-    <button type="submit" class="btn btn-success">Add Bid</button>
-  </div>
-</form>
-{% endif %}
 <p>{{ message }}</p>
 
 <h2>Comments</h2>
