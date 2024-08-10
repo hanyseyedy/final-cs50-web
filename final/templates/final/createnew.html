@@ -11,13 +11,14 @@
       name="title"
       id="title"
       placeholder="Enter Title"
+      required
     />
   </div>
-  <div class="form-group">
+  <div class="form-group mt-3">
     <label for="description">Content</label>
-    <textarea name="description" id="editor" class="form-control" rows="10"></textarea>
+    <textarea name="description" id="editor" class="form-control" rows="10" required></textarea>
   </div>
-  <div class="form-group">
+  <div class="form-group mt-3">
     <label for="imageurl">News Thumbnail URL</label>
     <input
       type="text"
@@ -27,9 +28,9 @@
       placeholder="Enter Image URL"
     />
   </div>
-  <div class="form-group">
-    <label for="category">Select Category</label>
-    <select name="category" id="category">
+  <div class="form-group mt-3">
+    <label for="category">Select Category</label><br>
+    <select name="category" id="category" class="form-select mb-2" required>
       {% for cat in categories %}
       <option value="{{ cat }}">{{ cat }}</option>
       {% endfor %}

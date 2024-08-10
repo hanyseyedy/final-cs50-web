@@ -14,12 +14,12 @@ def index(request):
 
 def listing(request, id):
     listingMore = Listing.objects.get(pk=id)
-    isinwatchlist = request.user in listingMore.watchlist.all()
+    descript = listingMore.description
     allComment = Comment.objects.filter(listing=listingMore)
     isOwner = request.user.username == listingMore.owner.username
     return render(request, "final/listing.html", {
         "listing": listingMore,
-        "isinwatchlist": isinwatchlist,
+        "descript": descript,
         "allcomments": allComment,
         "isowner": isOwner
     })
