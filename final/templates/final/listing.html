@@ -4,7 +4,7 @@
 <img src="{{ listing.ImageUrl }}" alt="{{ listing.title }}" height="400px" />
 
 <p><b>Writer:</b> {{ listing.owner }}</p>
-<p>{{ listing.description }}</p>
+<p>{{ descript |safe }}</p>
 
 <h2>Comments</h2>
 <br />
