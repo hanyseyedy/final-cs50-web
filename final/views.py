@@ -17,11 +17,14 @@ def listing(request, id):
     descript = listingMore.description
     allComment = Comment.objects.filter(listing=listingMore)
     isOwner = request.user.username == listingMore.owner.username
+    allCategories = Category.objects.all()
     return render(request, "final/listing.html", {
         "listing": listingMore,
         "descript": descript,
+        "summery": f"{descript[:100]}...",
         "allcomments": allComment,
-        "isowner": isOwner
+        "isowner": isOwner,
+        "categories" : allCategories
     })
 
 def addComment(request, id):
