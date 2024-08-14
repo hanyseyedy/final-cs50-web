@@ -7,19 +7,23 @@ from django.urls import reverse
 from .models import User, Category, Listing, Comment
 
 def index(request):
+    activeListings = Listing.objects.filter(isActive=True)
     allCategories = Category.objects.all()
     return render(request, "final/index.html", {
+        "listings": activeListings,
         "categories" : allCategories
     })
 
 def listing(request, id):
     listingMore = Listing.objects.get(pk=id)
+    activeListings = Listing.objects.filter(isActive=True)
     descript = listingMore.description
     allComment = Comment.objects.filter(listing=listingMore)
     isOwner = request.user.username == listingMore.owner.username
     allCategories = Category.objects.all()
     return render(request, "final/listing.html", {
         "listing": listingMore,
+        "listings": activeListings,
         "descript": descript,
         "summery": f"{descript[:100]}...",
         "allcomments": allComment,
