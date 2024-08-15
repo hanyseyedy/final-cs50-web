@@ -47,8 +47,10 @@ def displayCategory(request):
     if request.method == "POST":
         categoryForm = request.POST['category']
         category = Category.objects.get(categoryName=categoryForm)
+        activeListings = Listing.objects.filter(isActive=True, category=category)
         allCategories = Category.objects.all()
         return render(request, "final/index.html", {
+            "listings": activeListings,
             "categories" : allCategories
         })
 

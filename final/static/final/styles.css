@@ -28,3 +28,6 @@ body {
   min-height: 286px;
   max-height: 286px;
 }
+.index-card {
+  min-height: 411px;
+}

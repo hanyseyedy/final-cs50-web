@@ -1,26 +1,67 @@
 {% extends "final/layout.html" %} {% block body %}
 <h2>Active Listings</h2>
 
-<div class="container">
-  <div class="row">
-    {% for listing in listings %}
-    <div class="card col-sm">
-      <img
-        class="card-img-top"
-        src="{{ listing.ImageUrl }}"
-        alt="{{ listing.title }}"
-      />
-      <div class="card-body">
-        <h5 class="card-title">{{ listing.title }}</h5>
-        <p class="card-text">{{ listing.description }}</p>
-        <p style="display: flex">
-          <a href="{% url 'listing' id=listing.id %}" class="btn btn-primary"
-            >View More</a
-          >
-        </p>
+<main class="container">
+  <!-- first Category -->
+  <div class="row g-5">
+    <div class="col-md-8">
+      <div class="album py-5 bg-light">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 g-3">
+          {% for listing in listings %}
+            <div class="col">
+              <div class="card shadow-sm index-card">
+                
+                <img class="bd-placeholder-img card-img-top" src="{{ listing.ImageUrl }}" alt="{{ listing.title }}" />
+              
+                <div class="card-body">
+                  <h5 class="card-title">{{ listing.title }}</h5>
+                  <p class="card-text">{{ listing.description | safe |slice:"0:100" }}...</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <a href="{% url 'listing' id=listing.id %}" type="button" class="btn btn-md btn-outline-secondary">View More</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+  
+      
+  
+    </div>
+  
+    <!-- sidebar -->
+    <div class="col-md-4">
+      <div class="position-sticky" style="top: 2rem;">
+        <div class="p-4 mb-3 bg-light rounded">
+          <h4 class="fst-italic">Advertising</h4>
+          <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+            labore et dolore magna
+            aliqua.</p>
+        </div>
+  
+        <div class="p-4">
+          <h4 class="fst-italic">News Category</h4>
+          <ol class="list-unstyled mb-0">
+            {% for cat in categories %}
+            <li><a href="javascript:{}" onclick="document.getElementById('my_form').submit();" class="">{{ cat }}</a></li>
+            {% endfor %}
+          </ol>
+        </div>
+  
+        <div class="p-4">
+          <h4 class="fst-italic">Elsewhere</h4>
+          <ol class="list-unstyled">
+            <li><a href="#">GitHub</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">Facebook</a></li>
+          </ol>
+        </div>
       </div>
     </div>
-    {% endfor %}
   </div>
-</div>
+
+</main>
 {% endblock %}
