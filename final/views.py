@@ -1,15 +1,20 @@
 from django.contrib.auth import authenticate, login, logout
 from django.db import IntegrityError
 from django.http import HttpResponse, HttpResponseRedirect
+from django.core.paginator import Paginator
 from django.shortcuts import render
 from django.urls import reverse
 
 from .models import User, Category, Listing, Comment
 
 def index(request):
-    activeListings = Listing.objects.filter(isActive=True)
+    activeListings = Listing.objects.filter(isActive=True)[::-1]
+    paginator = Paginator(activeListings, 10)
+    page_number = request.GET.get('page')
+    post_of_the_page = paginator.get_page(page_number)
     allCategories = Category.objects.all()
     return render(request, "final/index.html", {
+        "post_of_the_page": post_of_the_page,
         "listings": activeListings,
         "categories" : allCategories
     })
@@ -45,11 +50,15 @@ def addComment(request, id):
 
 def displayCategory(request):
     if request.method == "POST":
-        categoryForm = request.POST['category']
+        categoryForm = request.POST["category"]
         category = Category.objects.get(categoryName=categoryForm)
-        activeListings = Listing.objects.filter(isActive=True, category=category)
+        activeListings = Listing.objects.filter(isActive=True, category=category)[::-1]
+        paginator = Paginator(activeListings, 10)
+        page_number = request.GET.get('page')
+        post_of_the_page = paginator.get_page(page_number)
         allCategories = Category.objects.all()
-        return render(request, "final/index.html", {
+        return render(request, "final/category.html", {
+            "post_of_the_page": post_of_the_page,
             "listings": activeListings,
             "categories" : allCategories
         })
@@ -77,7 +86,7 @@ def createListing(request):
         )
         newListing.save()
         return HttpResponseRedirect(reverse(index))
-
+    
 def login_view(request):
     if request.method == "POST":
 

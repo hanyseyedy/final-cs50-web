@@ -23,19 +23,21 @@
             </svg>
           </a>
     
-          <form id="my_form" action="{% url 'displayCategory' %}" method="POST">
-            {% csrf_token %}
+          
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
               <li><a href="{% url 'index' %}"  class="nav-link px-2 text-secondary">Home</a></li>
               
                 {% for cat in categories %}
                   <li>
-                    <a href="javascript:{}" onclick="document.getElementById('my_form').submit();" class="nav-link px-2 text-white">{{ cat }}</a>
-                    <input type="hidden" name="category" id="category" value="{{ cat }}">
+                    <form id="my_form_{{ cat }}" action="{% url 'displayCategory' %}" method="POST">
+                      {% csrf_token %}
+                      <a href="javascript:{}" onclick="document.getElementById('my_form_{{ cat }}').submit();" class="nav-link px-2 text-white">{{ cat }}</a>
+                      <input type="hidden" name="category" value="{{ cat }}">
+                      </form>
                   </li>
                 {% endfor %}
             </ul>
-          </form>
+          
     
           <div class="text-end justify-content-right">
             {% if user.is_authenticated %}

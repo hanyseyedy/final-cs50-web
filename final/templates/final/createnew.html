@@ -5,28 +5,15 @@
   {% csrf_token %}
   <div class="form-group">
     <label for="title">Title</label>
-    <input
-      type="text"
-      class="form-control"
-      name="title"
-      id="title"
-      placeholder="Enter Title"
-      required
-    />
+    <input type="text" class="form-control" name="title" id="title" placeholder="Enter Title" required/>
   </div>
   <div class="form-group mt-3">
     <label for="description">Content</label>
-    <textarea name="description" id="editor" class="form-control" rows="10" required></textarea>
+    <textarea name="description" id="editor" class="form-control" rows="10"></textarea>
   </div>
   <div class="form-group mt-3">
     <label for="imageurl">News Thumbnail URL</label>
-    <input
-      type="text"
-      class="form-control"
-      name="imageurl"
-      id="imageurl"
-      placeholder="Enter Image URL"
-    />
+    <input type="text" class="form-control" name="imageurl" id="imageurl" placeholder="Enter Image URL" />
   </div>
   <div class="form-group mt-3">
     <label for="category">Select Category</label><br>

@@ -13,13 +13,13 @@
 
   <!-- category list --> 
   <div class="row mb-2">
-    {% for listing in listings %}
+    {% for listing in listings|slice:":2" %}
       <div class="col-md-6">
         <div class="row category-card g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
           <div class="col p-4 d-flex flex-column position-static">
             <strong class="d-inline-block mb-2 text-primary">{{ listing.category }}</strong>
             <h3 class="mb-0">{{ listing.title }}</h3>
-            <p class="card-text mb-auto">{{ listing.description | safe |slice:"0:100" }}...</p>
+            <p class="card-text mb-auto">{{ listing.description | safe |slice:"0:90" }}...</p>
             <a href="{% url 'listing' id=listing.id %}" class="stretched-link">Continue reading</a>
           </div>
           <div class="col-auto d-none d-lg-block">
