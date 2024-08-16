@@ -14,7 +14,7 @@
       <script src="{% static 'final/script.js' %}"></script>
   </head>
   <body>
-    <header class="p-3 bg-dark text-white mb-3">
+    <header class="p-3 bg-dark text-white mb-3" id="go-top">
       <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
           <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
@@ -53,6 +53,15 @@
  
 
     {% block body %} {% endblock %}
+
+    <footer class="blog-footer">
+      <p>Blog News template built by <a href="https://hanyseyedy.ir/?lang=en">Hany Seyedy</a> </p>
+      <p>GitHub: <a href="https://github.com/hanyseyedy">@hanyseyedy</a></p>
+      <p>
+        <a href="#go-top">Back to top</a>
+      </p>
+    </footer>
+
   </body>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 
