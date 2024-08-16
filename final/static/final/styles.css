@@ -33,6 +33,9 @@ body {
 article.blog-post img {
   max-width: 100%;
 }
+.comment-box{
+  width: 60%;
+}
 .feed-btn{
     position: absolute;
     bottom: 13px;
