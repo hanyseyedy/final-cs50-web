@@ -2,16 +2,22 @@
 
 #### Video Demo: <URL https://youtu.be/q5wiZfx5smw>
 
-#### Description:
+#### summary description:
 
 This is a simple news blog. You will be able to see a list of news in different Categories. You can also add Comment in each post.
 
-This is easily done. the site have one or some admins and create post is able only for admins.
+#### Distinctiveness and Complexity:
+
+This is a simple news website that can also be used as a blog. At the same time, it is simple, fast, optimized, responsive and has a beautiful user interface.
+Among its special features, the following can be mentioned.
+
+- Posting is possible only by the site admin.
+- This site can have one or several admins.
+- Inserting a post by the admin through a special page is easily possible. also in create post page includes an advanced editor where you can insert any type of content such as text, table, video, photo, etc in your post.
 
 #### Program requirements:
 
 To run the program correctly, you not need to install any Python packages. at the moment in the request.txt file not any required packages.
-
 only need to install Django
 
 if you alrady not installed Django, in windows run below command:
@@ -38,7 +44,7 @@ To add post first you shoud to login. to this work you must click on the "login"
 after login click on the "create post" button on the top of page. Then you will enter the post creation page.
 
 - in "title field" must be insert your post title.
-- in "content field" must be insert your post or article content. This field includes an advanced editor where you can insert any type of content such as text, table, video, photo, etc.
+- in "content field" must be insert your post or article content.
 - in "Thumbnail field" must be insert primary Image URL your post.
 - In the category field, you must choose the category related to your post. Note that different categories must be created through the Django admin section.
 
