@@ -41,7 +41,7 @@ def addComment(request, id):
     listingData = Listing.objects.get(pk=id)
     message = request.POST['addComment']
     newComment = Comment(
-        author = currentUser,
+        # author = currentUser,
         listing = listingData,
         message = message
     )
