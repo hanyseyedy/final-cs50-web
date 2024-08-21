@@ -14,6 +14,10 @@ Among its special features, the following can be mentioned.
 - Posting is possible only by the site admin.
 - This site can have one or several admins.
 - Inserting a post by the admin through a special page is easily possible. also in create post page includes an advanced editor where you can insert any type of content such as text, table, video, photo, etc in your post.
+- In each post, it is possible to insert a comment for each visitor.
+- Paginator is used in the pages of this site, if the number of posts increases, the older pages are moved to another page, and you can move between different pages using Paginator.
+- Each post can be linked to a specific category. The site has posts with different categories, and by selecting each category, you can see only the posts related to a certain category.
+- In header of the site, a beautiful carousel is used, which displays three new posts of the site
 
 #### Program requirements:
 
@@ -58,4 +62,6 @@ after login click on the "create post" button on the top of page. Then you will 
 
 **category.html:** The page related to posts with the same category.
 
-**login.html:** The page related to admin login.
+**login.html:** The page related to admin login. At the beginning of setting up the site, you can use the following username and password.
+user: admin
+password:admin
